@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>Mohit Daksh — Bright & Creative Developer Portfolio</title>
+<meta name="description" content="Welcome to the bright and creative portfolio of Mohit Daksh. A showcase of innovative projects, insightful articles, and a passion for vibrant, impactful design from Gurugram, India.">
+<meta name="keywords" content="Mohit Daksh, portfolio, web developer india, creative developer, colorful portfolio, UI/UX design">
+<meta name="author" content="Mohit Daksh">
+<link rel="canonical" href="https://yourdomain.com/"> <!-- ACTION REQUIRED: Add your final domain -->
+
+<!-- Open Graph for Social Sharing -->
+<meta property="og:title" content="Mohit Daksh — Bright & Creative Portfolio">
+<meta property="og:description" content="A vibrant showcase of creative code and impactful digital experiences.">
+<meta property="og:image" content="https://yourdomain.com/social-share-bright.jpg"> <!-- ACTION REQUIRED: Create a new 1200x630px image -->
+<meta property="og:url" content="https://yourdomain.com/"> <!-- ACTION REQUIRED: Add your final domain -->
+<meta property="og:type" content="website">
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "name": "Mohit Daksh",
+  "url": "https://yourdomain.com/",
+  "jobTitle": "Creative Founder & Developer",
+  "knowsAbout": ["Web Development", "JavaScript", "React", "UI/UX Design", "Motion Design", "Brand Strategy"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Gurugram",
+    "addressRegion": "HR",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/YOUR_LINKEDIN",
+    "https://twitter.com/YOUR_TWITTER",
+    "https://github.com/YOUR_GITHUB",
+    "https://www.instagram.com/YOUR_INSTAGRAM"
+  ],
+  "image": "https://yourdomain.com/profile-photo.jpg"
+}
+</script>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #fff;
+  --card: #fefefe;
+  --muted: #555;
+  --maxw: 1100px;
+  --radius: 20px;
+  --transition: 0.5s ease-in-out;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+   
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #07211a;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+a { color: inherit; text-decoration: none; }
+img, video { max-width: 100%; border-radius: var(--radius); display: block; }
+
+/* Full Page Section Layout */
+.fullscreen-section {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 25px;
+    scroll-margin-top: 80px; /* Offset for sticky nav */
+    transition: background-color 0.8s ease; /* Transition for background color change */
+}
+
+/* New style to align sections to the left */
+.fullscreen-section.align-left {
+    align-items: flex-start;
+}
+
+/* NAV */
+.nav { 
+  background: rgb(241, 228, 106);
+  background-size: 600% 600%;
+  
+  border-radius: 50px;          /* Makes the navbar rounded */
+  margin: 10px auto;            /* Adds space around it */
+  width: calc(100% - 20px);     /* Prevents touching edges */
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  position: fixed; 
+  top: 10px;                    /* Pushes it a little down */
+  left: 50%;
+  transform: translateX(-50%);  /* Centers it horizontally */
+  z-index: 100; 
+}
+.nav a { color: #fff; }
+
+.nav-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; }
+.brand {
+    display: flex;
+    flex-direction: column; /* Stack logo and name vertically */
+    align-items: center;
+    text-align: center;
+}
+.brand img { 
+    height: 45px; /* Control logo size */
+    width: auto;
+    object-fit: contain;
+    border-radius: 0;
+}
+.brand h1 {
+    font-size: 1rem; /* Smaller font for under the logo */
+    margin: 2px 0 0 0; /* Small margin on top */
+    padding: 0;
+    line-height: 1;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff4b5c, #ffd93d, #6bcB77, #4d96ff, #ff4b5c);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 8s ease infinite;
+}
+.nav-links { display: flex; gap: 14px; align-items: center; }
+.nav-links a { padding: 8px 15px; border-radius: 50px; font-weight: 600; color: #07211a; transition: 0.3s; }
+.nav-links a:hover, .nav-links a.active { 
+  color: #ff4b5c; 
+  background-color: rgba(255, 75, 92, 0.08); /* Added hover background */
+}
+.cta {
+  background: linear-gradient(270deg, #ff4b5c, #ffd93d, #6bcB77, #4d96ff);
+  background-size: 600% 600%;
+  padding: 9px 14px;
+  border-radius: 50px;
+  color: #111;
+  font-weight: 700;
+  animation: rainbow 8s ease infinite;
+  transition: 0.3s;
+}
+.cta:hover { transform: scale(1.05); color: #fff; }
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #07211a;
+    z-index: 1001;
+}
+
+/* Gradient animation for buttons, headings */
+@keyframes rainbow {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.hero-left h1, h2.section {
+  background: linear-gradient(90deg, #ff4b5c, #ffd93d, #6bcB77, #4d96ff, #ff4b5c);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 8s ease infinite;
+  font-weight: 800;
+}
+
+/* HERO */
+.hero-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+    align-items: center;
+    width: 100%;
+    max-width: var(--maxw);
+}
+.hero-left h1 { 
+  font-size: clamp(2.2rem, 5vw, 2.8rem); /* Fluid font size */
+  margin: 0 0 10px; 
+}
+.hero-left .lead { color: #333; margin: 0 0 12px; font-weight: 500; }
+.hero-left .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.btn-primary {
+  background: linear-gradient(270deg, #ff4b5c, #ffd93d, #6bcB77, #4d96ff, #ff4b5c);
+  background-size: 600% 600%;
+  padding: 12px 16px; border-radius: 50px; font-weight: 700;
+  color: #fff; animation: rainbow 8s ease infinite; transition: var(--transition);
+}
+.btn-primary:hover { transform: scale(1.05); }
+.btn-outline { border: 2px solid #ff4b5c; padding: 10px 14px; border-radius: 50px; color: #ff4b5c; font-weight: 700; background: transparent; transition: var(--transition); }
+.btn-outline:hover { background: #ff4b5c; color: #fff; }
+.hero-right { background: var(--card); border-radius: var(--radius); padding: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: transform 0.4s; }
+.hero-right:hover { transform: translateY(-6px); }
+.profile-photo { width: 100%; border-radius: 50%; overflow: hidden; }
+
+/* Social Links */
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.social-links a {
+  color: var(--muted);
+  transition: 0.3s;
+}
+.social-links a:hover {
+  color: #ff4b5c;
+  transform: translateY(-3px);
+}
+
+/* Sections */
+section .content-wrapper { width: 100%; max-width: var(--maxw); }
+h2.section { 
+  font-size: clamp(2rem, 4.5vw, 2.5rem); /* Fluid font size */
+  margin: 0 0 28px; 
+  text-align: left; 
+}
+
+/* Cards & Grids */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.4s, box-shadow 0.4s, background-color 0.4s; }
+.card:hover { 
+  transform: translateY(-6px); 
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1); 
+  background-color: #fdfdfd; /* Added subtle hover background */
+}
+.muted { color: var(--muted); font-size: 0.95rem; }
+
+/* Projects & Media */
+.projects-grid, .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.project img { height: 160px; object-fit: cover; }
+.media-grid img, .media-grid video { height: 250px; object-fit: cover; width: 100%; }
+
+/* Contact */
+.contact-card { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+input, textarea { width: 100%; padding: 10px; border-radius: var(--radius); border: 1px solid #e6eef0; transition: 0.3s; font-family: 'Montserrat', sans-serif; }
+input:focus, textarea:focus { border-color: #ff4b5c; outline: none; }
+button[type="submit"] {
+  background: linear-gradient(270deg, #ff4b5c, #ffd93d, #6bcB77, #4d96ff, #ff4b5c);
+  background-size: 600% 600%; color: #fff;
+  padding: 10px 14px; border-radius: 50px; border: 0;
+  font-weight: 700; animation: rainbow 8s ease infinite; transition: 0.3s; cursor: pointer;
+}
+button[type="submit"]:hover { transform: scale(1.05); }
+
+/* WhatsApp Floating Button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: 0.3s;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* Footer */
+footer { text-align: center; color: var(--muted); padding: 20px 18px; position: relative; }
+
+/* Cursor trail */
+#cursorTrail { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
+body { cursor: none; }
+
+/* Responsive */
+@media(max-width: 980px) {
+  .hero-content-wrapper { 
+    grid-template-columns: 1fr; /* Stack hero content on tablets and below */
+    gap: 30px;
+    text-align: center;
+  }
+  .hero-left h1 {
+    text-align: center;
+  }
+  .hero-right {
+      order: -1; /* Image appears on top */
+      max-width: 320px;
+      margin: 0 auto;
+  }
+  .hero-left .actions {
+      justify-content: center;
+  }
+  .contact-card {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .mobile-menu-toggle {
+      display: block; /* Show hamburger */
+  }
+  .brand h1 {
+      display: none; /* Hide name next to logo on mobile */
+  }
+  .nav-links {
+      position: fixed;
+      top: 80px; /* Adjust to be below nav bar */
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 20px 0;
+      transform: translateY(-150%);
+      transition: transform 0.4s ease-in-out;
+  }
+  .nav-links.open {
+      transform: translateY(0);
+  }
+  .nav-links a {
+      width: 100%;
+      text-align: center;
+      padding: 15px 0;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .nav-links a:last-child {
+      border-bottom: none;
+  }
+   .nav-links a.cta {
+      margin-top: 10px;
+      border-radius: 50px;
+      padding: 12px 20px;
+      color: #111;
+  }
+  .grid-3, .projects-grid, .media-grid { grid-template-columns: 1fr; }
+  h2.section {
+      text-align: center; /* Center section titles on smaller screens for balance */
+  }
+  .fullscreen-section.align-left {
+      align-items: center; /* Center the content wrapper */
+  }
+}
+
+@media(max-width: 480px) {
+    .fullscreen-section {
+        padding: 80px 15px; /* Reduce padding on very small screens */
+    }
+    .hero-left .lead {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<canvas id="cursorTrail"></canvas>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home">
+      <!-- Your new logo is here -->
+       <img src="Gemini_Generated_Image_nh2eftnh2eftnh2e.png" alt="company logo">
+      <h1>Mohit Daksh</h1>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="#media">Media</a>
+      <a href="#contact" class="cta">Work with me</a>
+    </nav>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="fullscreen-section" id="home">
+    <div class="hero-content-wrapper">
+      <div class="hero-left">
+        <h1>Hi — I'm <strong>Mohit Daksh</strong></h1>
+        <p class="lead">As a Creative Developer and Founder with a global vision, I engineer bright, futuristic, and highly impactful digital experiences that transcend geographical boundaries. Specializing in full-stack development and UI/UX design, I build high-performance digital products—from immersive custom web applications and interactive websites to visionary user interfaces—that capture worldwide attention and drive substantial, measurable ROI. My unique advantage is blending cutting-edge development with a founder's strategic perspective, ensuring every line of code is a direct, future-proof investment in your global brand's success. I deliver world-class digital transformation and innovative solutions that dominate markets everywhere.</p>
+        <div class="actions">
+          <a class="btn-primary" href="#contact">Hire / Collaborate</a>
+          <a class="btn-outline" href="#projects">View Projects</a>
+        </div>
+      </div>
+      <aside class="hero-right">
+        <div class="profile-photo">
+          <!-- ACTION REQUIRED: Replace with your photo -->
+          <img src="DSC00054_resize.JPG" alt="Professional portrait of Mohit Daksh">
+        </div>
+        <p class="muted" style="margin-top:10px; text-align: center;">Based in India | <a href="mailto:mohitdaksh2323@gmail.com">mohitdaksh2323@gmail.com</a></p>
+        <div class="social-links">
+            <!-- ACTION REQUIRED: Replace with your social media links -->
+            <a href="https://www.instagram.com/mohitdaksh23/?hl=en" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@dakshmohiit2323" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/mohit-daksh-365a13202/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="fullscreen-section align-left" id="about">
+    <div class="content-wrapper">
+      <h2 class="section">My Philosophy</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Bright Ideas</h3>
+          <p class="muted">I believe that technology should do more than just function—it should inspire. Every project I take on starts with understanding real human needs and turning them into intuitive solutions. I aim to build experiences that are not just effective, but also joyful and memorable. Whether it’s a complex web application, a mobile app, or a digital platform, my goal is to make it feel effortless for the people who use it. Bright ideas are only valuable if they improve lives—and that’s what I focus on every day.</p>
+        </div>
+        <div class="card">
+          <h3>Futuristic Design</h3>
+          <p class="muted">I see design as more than just aesthetics. Every pixel, every animation, every interaction should evoke a feeling. My design philosophy blends elegance with usability, creating interfaces that people don’t just use—they enjoy. I combine creativity with technical expertise, ensuring that my solutions are not only visually stunning but also highly functional. The heart of my design is empathy: understanding users, anticipating their needs, and crafting experiences that resonate deeply.</p>
+        </div>
+        <div class="card">
+          <h3>Purposeful Collaboration</h3>
+          <p class="muted">The best projects are never built alone. I partner with visionary clients, passionate teams, and ambitious brands to bring bold ideas to life. I believe in open communication, mutual respect, and shared purpose. By truly listening, understanding goals, and working collaboratively, we transform abstract ideas into real-world experiences that engage, inspire, and leave a lasting impression. My approach is rooted in trust, creativity, and a relentless drive to exceed expectations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="fullscreen-section align-left" id="projects">
+    <div class="content-wrapper">
+      <h2 class="section">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project card">
+          <img src="Screenshot 2025-09-30 151814.png" alt="Bright Web App Interface">
+          <h3>Project One: Farm website</h3>
+          <p class="muted"> Farm website url:-https://kisangoldkgp.online/ <br>
+            A platform connecting local farmers with urban consumers, built with React and Node.js to promote sustainable agriculture.</p>
+        </div>
+        <div class="project card">
+          <img src="Screenshot 2025-09-30 152356.png" alt="Vibrant Portfolio Website">
+          <h3>Project Two: Real State Agency</h3>
+          <p class="muted">Designed and developed a visually-rich portfolio for a local artist, focusing on performance and a seamless mobile experience.</p>
+        </div>
+        <div class="project card">
+          <img src="Screenshot 2025-09-30 152739.png" alt="Colorful Data Dashboard">
+          <h3>Project Three: E-commerce for Trending products</h3>
+          <p class="muted">Created a dynamic blog and media center for a SaaS startup, resulting in a 200% increase in user engagement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="fullscreen-section align-left" id="blog">
+    <div class="content-wrapper">
+      <h2 class="section">Latest From My Blog</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Designing for Joy</h3>
+          <p class="muted">Exploring how color, motion, and intuitive interfaces can create genuinely cheerful user experiences in a digital world.</p>
+          <p><a href="#">Read more →</a></p>
+        </div>
+        <div class="card">
+          <h3>The Future is Green Code</h3>
+          <p class="muted">A look into how developers can contribute to environmental sustainability through mindful coding and green project choices.</p>
+          <p><a href="#">Read more →</a></p>
+        </div>
+        <div class="card">
+          <h3>From Idea to Impact: A Project Diary</h3>
+          <p class="muted">The complete journey of the EcoConnect app, from the initial sketch to a fully functional, community-driven platform.</p>
+          <p><a href="#">Read more →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="fullscreen-section align-left" id="media">
+    <div class="content-wrapper">
+      <h2 class="section">Media Gallery</h2>
+      <div class="media-grid">
+        <img src="Gemini_Generated_Image_fiy3xwfiy3xwfiy3.png" alt="Abstract coding image">
+        <img src="Gemini_Generated_Image_5g4ksu5g4ksu5g4k.png" alt="Futuristic technology">
+        <img src="Gemini_Generated_Image_h9mshqh9mshqh9ms.png" alt="Cityscape of Gurugram">
+        <img src="Gemini_Generated_Image_9i2s5i9i2s5i9i2s.png" alt="Creative design workspace">
+        <img src="Gemini_Generated_Image_5avq8o5avq8o5avq.png" alt="Code on a screen">
+        <img src="Gemini_Generated_Image_84gzrk84gzrk84gz.png" alt="Nature in India">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="fullscreen-section align-left" id="contact">
+    <div class="content-wrapper">
+      <h2 class="section">Contact Me</h2>
+      <div class="card contact-card">
+        <form id="contactForm">
+          <input name="name" placeholder="Your name" required>
+          <br><br>
+          <input name="email" placeholder="Email" type="email" required>
+          <br><br>
+          <textarea name="message" placeholder="Message" rows="5" required></textarea>
+          <br><br>
+          <button type="submit">Send Message</button>
+        </form>
+        <div>
+          <h3>Get in touch</h3>
+          <p class="muted">I'm always open to discussing new projects, creative ideas or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
+          <p><strong>Email:</strong> <a href="mailto:mohitdaksh2323@gmail.com">mohitdaksh2323@gmail.com</a></p>
+          <!-- ACTION REQUIRED: Replace with your phone number -->
+          <p><strong>Phone:</strong> <a href="tel:+918532064524">+91 8532064524</a></p>
+          <p><strong>Location:</strong>India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Mohit Daksh — All rights reserved.</p>
+    <p class="muted">Made with ❤️ in Gurugram</p>
+  </footer>
+</main>
+
+<!-- ACTION REQUIRED: Replace with your WhatsApp number -->
+<a href="https://wa.me/918532064524" target="_blank" class="whatsapp-btn" aria-label="Contact on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// IntersectionObserver for fade-in effect
+const fadeInObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = 1;
+      e.target.style.transform = 'translateY(0)';
+      fadeInObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.card, .project, .media-grid img, .hero-left, .hero-right, h2.section').forEach(el => {
+  el.style.opacity = 0;
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  fadeInObserver.observe(el);
+});
+
+// Active Nav Link on Scroll & Section Background Color
+const sections = document.querySelectorAll('section.fullscreen-section');
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const bgColors = [
+    'transparent', // Home section
+    'rgba(255, 107, 107, 0.05)', // About
+    'rgba(255, 217, 61, 0.05)',  // Projects
+    'rgba(107, 203, 119, 0.05)', // Blog
+    'rgba(77, 150, 255, 0.05)',  // Media
+    'rgba(255, 75, 92, 0.05)'   // Contact
+];
+
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        const link = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if(entry.isIntersecting){
+            navLinks.forEach(l => l.classList.remove('active'));
+            if(link) {
+                link.classList.add('active');
+            }
+            // Apply background color to the body
+            const colorIndex = Array.from(sections).indexOf(entry.target);
+            document.body.style.backgroundColor = bgColors[colorIndex % bgColors.length];
+
+        }
+    });
+}, { threshold: 0.6 });
+
+sections.forEach(section => {
+    navObserver.observe(section);
+});
+
+// Add transition to body for smooth background color change
+document.body.style.transition = 'background-color 0.8s ease';
+
+
+// Form handler
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const f = e.target;
+    const data = Object.fromEntries(new FormData(f).entries());
+    alert('Thanks ' + (data.name || '') + '! Message received. I will contact you soon.');
+    f.reset();
+});
+
+// Rainbow cursor trail
+const canvas = document.getElementById('cursorTrail');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+let trailColors = ['#ff4b5c', '#ffd93d', '#6bcB77', '#4d96ff'];
+let mouse = { x: 0, y: 0 };
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    particles.push({ x: e.clientX, y: e.clientY, size: Math.random() * 4 + 2, color: trailColors[Math.floor(Math.random() * trailColors.length)], life: 60 });
+});
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = particles.length - 1; i >= 0; i--) {
+    let p = particles[i];
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.life / 60;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+    p.y -= 1; // Float up
+    p.life--;
+    p.size *= 0.96;
+    if (p.life <= 0 || p.size < 0.5) {
+      particles.splice(i, 1);
+    }
+  }
+  
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// Mobile Menu Toggle
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const navLinksContainer = document.getElementById('nav-links');
+const allNavLinks = document.querySelectorAll('.nav-links a');
+
+mobileMenuToggle.addEventListener('click', () => {
+    navLinksContainer.classList.toggle('open');
+    const icon = mobileMenuToggle.querySelector('i');
+    if (navLinksContainer.classList.contains('open')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+});
+
+// Close menu when a link is clicked
+allNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinksContainer.classList.contains('open')) {
+            navLinksContainer.classList.remove('open');
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+});
+</script>
+</body>
+</html>
+
