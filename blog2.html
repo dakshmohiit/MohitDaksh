@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Daksh | Blog</title>
+  <meta name="description" content="Personal blog of Mohit Daksh — insights on design, technology, green coding, and futuristic ideas.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+      transition: background-color 0.6s ease;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff6f61, #ffcc00, #4cafef);
+      padding: 1rem 2rem;
+      text-align: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-radius: 0 0 20px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      animation: rainbowText 4s linear infinite;
+    }
+
+    .blog-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    article {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    article.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    article h2 {
+      font-size: 1.8rem;
+      margin-top: 0;
+      background: linear-gradient(90deg, #ff6f61, #ffcc00, #4cafef);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowText 6s linear infinite;
+    }
+
+    article p {
+      font-size: 1.05rem;
+      margin: 1rem 0;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #ff6f61, #ffcc00, #4cafef);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .read-more:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      background: #eee;
+      border-radius: 20px 20px 0 0;
+      font-size: 0.9rem;
+    }
+
+    /* Rainbow animated text */
+    @keyframes rainbowText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mohit Daksh — Blog</h1>
+    <p>Ideas, Stories & Insights</p>
+  </header>
+
+  <div class="blog-container">
+    <article>
+      <h2>Designing for Joy</h2>
+      <p>Colors and motion are not just visual decorations; they create moods and shape emotions. In this article, I explore how vibrant palettes, delightful animations, and intuitive user flows can make digital spaces truly joyful. When design sparks happiness, users feel connected—and that connection is the secret to brand loyalty.</p>
+    </article>
+
+    <article>
+      <h2>The Future is Green Code</h2>
+      <p>Behind every app and website is an invisible cost: energy. As developers, we can reduce waste, optimize efficiency, and design with sustainability in mind. From clean coding practices to mindful project planning, I share ways to make technology kinder to the planet—without compromising innovation.</p>
+    </article>
+
+    <article>
+      <h2>From Idea to Impact: A Project Diary</h2>
+      <p>EcoConnect started as a sketch on paper—and grew into a platform that empowers communities to create real change. This diary takes you behind the scenes of its journey: brainstorming, prototyping, testing, failing, learning, and finally launching. It’s a story of persistence, creativity, and collaboration at its best.</p>
+    </article>
+  </div>
+
+  <footer>
+    © 2025 Mohit Daksh | Built with ❤️ and Bright Ideas
+  </footer>
+
+  <script>
+    // Fade-in animation when scrolling
+    const posts = document.querySelectorAll("article");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    posts.forEach(post => observer.observe(post));
+  </script>
+</body>
+</html>
